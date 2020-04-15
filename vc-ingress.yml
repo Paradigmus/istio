@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: sa-services
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - http-gateway                      
+  http:
+  - match:
+    - uri:
+        exact: /ws
+    route:
+    - destination:
+        host: service-ts78             
+        port:
+          number: 80

@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: external-svc-db
+  #namespace : egress
+spec:
+  hosts:
+  - database.domainname
+  exportTo:
+  - "."
+  #location: MESH_EXTERNAL
+  ports:
+  - number: 1521
+    name: tcp
+    protocol: TCP
+  #resolution: DNS
