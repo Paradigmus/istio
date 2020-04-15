@@ -7,7 +7,7 @@ spec:
   hosts:
   - database.domainname
   exportTo:
-  - "."
+  - "*"
   #location: MESH_EXTERNAL
   ports:
   - number: 1521
