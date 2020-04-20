@@ -7,7 +7,7 @@ spec:
   hosts:
   - database.domainname
   exportTo:
-  - "*"
+  - "."
   gateways:
   - mesh
   - istio-egressgateway
@@ -19,6 +19,9 @@ spec:
     route:
     - destination:
         host: istio-egressgateway.istio-system.svc.cluster.local
+        subset: external-svc-db
+        port:
+          number: 80
   - match:
     - port: 80
       gateways:
